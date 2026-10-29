@@ -6,7 +6,7 @@ Download media, manage your library, and transcribe audio or video using the bui
 
 ## Download Rextract
 
-When the first signed release is published, it will appear under [Releases](https://github.com/DarkMatter0352/Rextract-releases/releases). The Windows installer and future automatic updates will be available there.
+When the first signed release is published, it will appear under [Releases](https://github.com/DarkMatter0352/Rextract/releases). The Windows installer and future automatic updates will be available there.
 
 **No public release has been published yet.** Only download installers once a tested, signed version is available.
 
