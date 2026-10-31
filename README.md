@@ -26,6 +26,8 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 ### Features
 
 - **Save media** from supported YouTube, Instagram, X/Twitter and Bluesky links. Site support can change when the services change.
+- **Optional Chrome Companion:** small download buttons on supported posts and videos, with a download activity ring. Send downloads to your PC without leaving Chrome.
+- **Quiet background downloads:** keep Chrome in front while Rextract works from the Windows tray; choose whether the app window opens or stays hidden.
 - **Choose your format:** videos, audio-only downloads, photo formats and quality options as applicable.
 - **Download progress you can see:** status, progress indicator, Stop, and a live activity log.
 - **Built-in transcription:** use Vibe's native transcription workflow, history, playback, and export features.
@@ -66,13 +68,77 @@ Chrome downloads can run quietly using Rextract's background tray process. You c
 
 ## How to use it
 
-**Download:** Open **Download**, paste one or more supported URLs, choose your download options, and click **Download**. Watch the progress indicator; use **Stop** if needed, or **Open folder** to see your files.
+### Download a video, photo or audio file
 
-**Transcribe:** Open **Transcribe**, add a supported audio or video file, and use the native Vibe transcription interface. You can also use **Transcribe last download** after downloading a media file.
+1. Open the **Download** tab and copy a supported YouTube, Instagram, X/Twitter or Bluesky URL.
+2. Paste it into **PASTE LINKS** (or click **Paste from clipboard**). For multiple downloads, put **one link on each line**.
+3. Under **DOWNLOAD OPTIONS**, leave **Smart (recommended)** and **Best available** selected to start, or choose the format and quality you want.
+4. Click **DOWNLOAD**. Watch the progress bar and **LIVE ACTIVITY** for download and processing messages.
+5. Click **Open folder** when finished. Files go to your Windows **Documents / Rextract** folder.
 
-**Library:** Open the **Library** tab to access saved media.
+**What do the download options mean?**
 
-**Update:** Open **Settings → Rextract Updates → Check now**. If an update is available, select **Update and restart**. This updates **Rextract as a whole**, including its embedded Vibe integration when we ship a newer integrated engine. It does **not** independently install new upstream Vibe versions.
+| Option | What it does |
+| --- | --- |
+| **Smart (recommended)** | Automatically chooses an appropriate video/photo download method for the link. |
+| **Videos only** | Downloads video when supported. |
+| **Photos / carousels** | Downloads supported images and multi-image posts. |
+| **MP3 (audio only)** | Extracts audio as an MP3 when supported. |
+| **Video quality** | Choose best available or cap resolution at 4K, 1440p, 1080p, 720p or 480p. Availability depends on the source. |
+| **YouTube playlists** | Turn this on if you deliberately want an entire playlist rather than one video. Leave it off otherwise. |
+| **Instagram photo format** | Keep the original image, or choose JPG/PNG conversion where tools permit. |
+| **Login cookies (optional)** | Use existing configuration, a supported local browser session, or a cookies.txt file when a website requires authentication. |
+
+**Other Download controls:** **Stop** interrupts the active desktop download; **Clear** empties the pasted link box without deleting saved files; **Check tools** checks yt-dlp, gallery-dl and FFmpeg; **Fix saved photos** helps convert selected WebP images to your chosen format.
+
+Some downloads need a valid website login or an available media stream. If something fails, read **LIVE ACTIVITY**, try the original post URL, and see the troubleshooting tips below. Never share your session cookies, login credentials or other secrets.
+
+### Download directly from Chrome (optional)
+
+Once you've installed the [Chrome Companion](#chrome-companion-v0216-and-newer) and repaired its desktop connection, refresh a supported website. Click the small **Rextract download arrow** on a YouTube video, Instagram post/Reel, X post or Bluesky post. Depending on the site, it appears near the regular action buttons.
+
+- The circular indicator means your request is **queued or downloading**; when available, it reflects transfer progress. A checkmark means the download has completed.
+- The desktop app can stay **hidden in the background** while the download finishes.
+- You can also click the pinned **Rextract Chrome extension icon** to use **Download current post**, **Transcribe last download**, or **Open Rextract**. The first action works on a supported post/video URL.
+- If a button is missing on a particular site layout, use the extension popup on that post's direct URL, or paste its URL into the desktop app.
+
+**Chrome does not put these files into its normal Downloads list.** The Rextract desktop helper saves them under **Documents / Rextract**.
+
+### Transcribe audio and video
+
+1. In Rextract, open the **Transcribe** tab, which contains the integrated Vibe interface.
+2. Add an existing audio/video file, or click **Transcribe last download** after downloading one. In the **Library** tab, supported media also has a **Transcribe** action.
+3. Follow the transcription interface to select an available model and start transcription. On first use, you may need to download a model.
+4. Review your transcript and use the available history, playback and export features.
+
+You can launch **Transcribe last download** from the Chrome Companion popup as well. Transcription uses Vibe's local engine; model downloads and new media downloads still require an internet connection. Images are not transcribed.
+
+### Browse your downloads in Library
+
+Open **Library** to see files in your Rextract download folder. Click **Refresh** to rescan it. Use **Transcribe** beside a supported audio/video file, or choose **Open folder** from the Download tab to work directly in Windows File Explorer.
+
+### Settings, updates and background behavior
+
+| Setting or action | What to expect |
+| --- | --- |
+| **Settings → Rextract Updates → Check now** | Checks the official signed release feed. If available, use **Update and restart**. Normal updates are designed to preserve your data. |
+| **Open the Rextract window when downloading from Chrome** | Off by default: Chrome downloads run quietly in the background. On: open the desktop window to watch activity. |
+| **Quit Rextract completely when closing its window (X)** | Off by default: X hides the window to the system tray. On: X exits the program, stopping active downloads. |
+| **Quit Rextract completely** | Fully exits Rextract instead of leaving its background process running. You can also use the Windows tray icon's **Quit Rextract** option. |
+| **Repair Chrome connection** | Re-registers the installed Chrome helper if the extension cannot contact Rextract. Reload the extension afterward. |
+
+**Update:** A published Rextract update also updates its integrated Vibe version when the project ships one; it does **not** separately install each upstream Vibe release.
+
+### Troubleshooting quick fixes
+
+- **Chrome says the desktop connection is unavailable:** open Rextract → **Settings → Chrome Companion → Repair Chrome connection**, then visit `chrome://extensions` and reload Rextract. If the helper is missing, reinstall the **Windows installer**, not just the extension ZIP.
+- **No download arrow on Instagram/Reels or another supported site:** refresh the page, check the extension is enabled, and try **Download current post** from its popup. Site layouts can change.
+- **The button stays queued or a download fails:** check whether Rextract is running and inspect the desktop **LIVE ACTIVITY** log. Try a different supported URL and click **Check tools**. Site restrictions and missing media tools can prevent downloads.
+- **An Instagram post needs login:** a saved Instagram session or your own authorized cookies may be required. Treat session tokens like passwords; never paste them into public issues.
+- **Transcription model missing or slow:** use Vibe's model selection/download flow and ensure enough disk space for the model. Processing time depends on your PC and model.
+- **You want Rextract fully closed:** choose **Quit Rextract completely** in Settings or from the tray. Chrome may start it again if you initiate another download.
+
+For help, include the **Rextract version**, Windows version, site, and the exact error message when reporting a problem—**never** include passwords, cookies, private URLs or personal media.
 
 ## The app
 
