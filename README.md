@@ -46,6 +46,27 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 3. Download the Windows installer named **`Rextract_*_x64-setup.exe`**. This is the app installer, not the `.sig` or `latest.json` files.
 4. Run the installer, then open **Rextract** from Windows.
 
+### First-time media tools setup (required on fresh Windows PCs)
+
+**Important:** Desktop v0.2.17 does not bundle the external media tools. **Download → Check tools** checks if the tools are available; it does not install them. A fresh PC may show **“yt-dlp is unavailable”** even after correctly installing Rextract and Chrome Companion.
+
+Open **Windows Terminal / PowerShell** and run these Windows Package Manager commands once, as needed:
+
+```powershell
+winget install --source winget --id yt-dlp.yt-dlp --exact
+winget install --source winget --id Gyan.FFmpeg --exact
+winget install --source winget --id mikf.gallery-dl --exact
+```
+
+- **yt-dlp** is required for YouTube and supported video/audio downloads.
+- **FFmpeg** merges MP4 video/audio and converts downloads to MP3.
+- **gallery-dl** handles supported photo and carousel downloads.
+
+Approve prompts for these third-party packages only if you trust their publishers. **Fully quit Rextract** from its system tray menu → **Quit Rextract**, then reopen it and select **Download → Check tools**. The ideal result is `yt-dlp: Ready`, `gallery-dl: Ready` and `FFmpeg: Ready`.
+
+If a tool still shows Missing, restart Windows so its updated PATH is available and check its command in a new PowerShell window with `yt-dlp --version`, `ffmpeg -version`, or `gallery-dl --version`. Reinstalling Chrome Companion does not install these tools.
+
+This manual first-run step is a current limitation of v0.2.17; a future release can provide a more integrated setup.
 ### Chrome Companion (v0.2.16 and newer)
 
 **Current public versions:** Rextract desktop **v0.2.17** and Chrome Companion **v0.2.7**. YouTube watch pages and Shorts have separate **MP4 video** (blue) and **MP3 audio** (green) buttons. On Shorts, the controls are positioned in the right-side action area, outside the video, rather than covering the video. Bluesky feed/repost/thread improvements remain included. If you already have Rextract desktop v0.2.17, **you only need to replace the Chrome extension** to get this placement fix.
@@ -138,6 +159,7 @@ Open **Library** to see files in your Rextract download folder. Click **Refresh*
 - **Chrome says the desktop connection is unavailable:** open Rextract → **Settings → Chrome Companion → Repair Chrome connection**, then visit `chrome://extensions` and reload Rextract. If the helper is missing, reinstall the **Windows installer**, not just the extension ZIP.
 - **No download arrow on Instagram/Reels or another supported site:** refresh the page, check the extension is enabled, and try **Download current post** from its popup. Site layouts can change.
 - **MP3 button is unavailable, saves the wrong format or conversion fails:** install the matching Windows app **v0.2.17+** and Chrome Companion **v0.2.5+**. Open **Download → Check tools** and verify yt-dlp and FFmpeg. Refresh YouTube after updating the extension.
+- **Error: yt-dlp is unavailable / gallery-dl missing:** follow [First-time media tools setup](#first-time-media-tools-setup-required-on-fresh-windows-pcs). **Check tools** only reports status; it does not install download tools.
 - **The button stays queued or a download fails:** check whether Rextract is running and inspect the desktop **LIVE ACTIVITY** log. Try a different supported URL and click **Check tools**. Site restrictions and missing media tools can prevent downloads.
 - **An Instagram post needs login:** a saved Instagram session or your own authorized cookies may be required. Treat session tokens like passwords; never paste them into public issues.
 - **Transcription model missing or slow:** use Vibe's model selection/download flow and ensure enough disk space for the model. Processing time depends on your PC and model.
