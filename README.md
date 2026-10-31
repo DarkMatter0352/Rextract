@@ -48,6 +48,8 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 
 ### Chrome Companion (v0.2.16 and newer)
 
+**Latest extension: Chrome Companion v0.2.4 (Bluesky fix).** The public ZIP now supports improved download-button placement on Bluesky feed posts, reposts, and threads. If you installed an older Chrome Companion, replace it using the steps below. **You do not need to reinstall the v0.2.16 Windows desktop app.**
+
 The optional Chrome Companion adds one-click download arrows to supported **YouTube, Instagram, X/Twitter and Bluesky** posts. It communicates only with the Rextract helper installed on your own Windows computer.
 
 1. On the **same release page** as the Windows installer, download **`Rextract-Chrome-Companion.zip`**.
@@ -55,6 +57,8 @@ The optional Chrome Companion adds one-click download arrows to supported **YouT
 3. In Chrome, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the extracted folder containing `manifest.json`.
 4. Open Rextract → **Settings → Chrome Companion → Repair Chrome connection**; reload the extension if asked.
 5. Refresh the site. Use the small download arrow beside the site's post controls; the ring reflects download activity.
+
+**Updating Chrome Companion:** To replace an older version, remove the existing Rextract extension at `chrome://extensions`, extract the latest public ZIP into a permanent folder, click **Load unpacked**, and select that folder. Return to Rextract → **Settings → Chrome Companion → Repair Chrome connection** if Chrome reports a connection error. Refresh any open YouTube, Instagram, X, or Bluesky tabs.
 
 This Chrome Companion is **not listed on the Chrome Web Store**. You install it using Chrome's Load unpacked option. It can stop working if social sites change their page layouts; if an arrow is missing, the extension popup's **Download current post** can be used on a supported media permalink.
 
