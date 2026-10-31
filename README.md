@@ -46,6 +46,13 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 3. Download the Windows installer named **`Rextract_*_x64-setup.exe`**. This is the app installer, not the `.sig` or `latest.json` files.
 4. Run the installer, then open **Rextract** from Windows.
 
+### Public test: Rextract v0.2.18 — yt-dlp bundled
+
+**[Download the public v0.2.18 test installer](https://github.com/DarkMatter0352/Rextract/releases/tag/v0.2.18)** — no private GitHub access required. This pre-release packages the official, checksum-verified yt-dlp executable inside the Windows app, specifically to fix intermittent **yt-dlp: Missing** errors when Chrome starts Rextract with the desktop closed. **Chrome Companion stays v0.2.7.**
+
+To test: install `Rextract_0.2.18_x64-setup.exe` from that pre-release, fully quit Rextract using the Windows tray, click MP4 or MP3 on a YouTube video or Short in Chrome, and repeat after quitting it again. Rextract **Download → Check tools** should consistently show **yt-dlp: Ready**, including on the first launch. If this fails, please share the status and error so the maintainers can investigate.
+
+**v0.2.17 remains the stable latest release** and is still used by the signed in-app updater until this test is confirmed reliable. This test installer is public but is not yet the default stable release.
 ### First-time media tools setup (required on fresh Windows PCs)
 
 **Important:** Desktop v0.2.17 does not bundle the external media tools. **Download → Check tools** checks if the tools are available; it does not install them. A fresh PC may show **“yt-dlp is unavailable”** even after correctly installing Rextract and Chrome Companion.
