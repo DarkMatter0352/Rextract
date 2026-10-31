@@ -44,6 +44,22 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 3. Download the Windows installer named **`Rextract_*_x64-setup.exe`**. This is the app installer, not the `.sig` or `latest.json` files.
 4. Run the installer, then open **Rextract** from Windows.
 
+### Chrome Companion (v0.2.16 and newer)
+
+The optional Chrome Companion adds one-click download arrows to supported **YouTube, Instagram, X/Twitter and Bluesky** posts. It communicates only with the Rextract helper installed on your own Windows computer.
+
+1. On the **same release page** as the Windows installer, download **`Rextract-Chrome-Companion.zip`**.
+2. Extract the ZIP into a **permanent folder** (don't load the ZIP itself).
+3. In Chrome, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the extracted folder containing `manifest.json`.
+4. Open Rextract → **Settings → Chrome Companion → Repair Chrome connection**; reload the extension if asked.
+5. Refresh the site. Use the small download arrow beside the site's post controls; the ring reflects download activity.
+
+This Chrome Companion is **not listed on the Chrome Web Store**. You install it using Chrome's Load unpacked option. It can stop working if social sites change their page layouts; if an arrow is missing, the extension popup's **Download current post** can be used on a supported media permalink.
+
+### Background operation and full quit (v0.2.16+)
+
+Chrome downloads can run quietly using Rextract's background tray process. You can **Quit Rextract completely** from Settings or its Windows tray menu to free resources. In Settings, **Quit when closing its window (X)** changes X from hide-to-tray to a full exit. The next Chrome download may start Rextract again as needed. Quitting while downloading interrupts active work.
+
 **System:** Windows x64. An internet connection is needed for downloads and for obtaining any transcription models that aren't already on your computer. Rextract includes the native Vibe application experience; a separate standalone Vibe installation is **not required**.
 
 **A note about Windows SmartScreen:** Rextract's in-app updater uses a cryptographic signature, but the downloadable installer does **not yet** have a Windows-trusted publisher/code-signing certificate. Windows may show an **Unknown publisher** warning. Only run installers you obtained from this official repository and personally trust; never disable SmartScreen globally.
