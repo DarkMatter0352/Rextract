@@ -48,7 +48,7 @@ Rextract brings **downloads**, **transcription** and a **media library** togethe
 
 ### Chrome Companion (v0.2.16 and newer)
 
-**Current versions:** Rextract desktop **v0.2.17** and Chrome Companion **v0.2.5**. The extension adds separate **MP4 video** and **MP3 audio** buttons on YouTube (including Shorts), plus the improved Bluesky feed/repost/thread buttons from v0.2.4. If upgrading from an older release, **update both the desktop app and the extension** to enable the YouTube format choices.
+**Current public versions:** Rextract desktop **v0.2.17** and Chrome Companion **v0.2.5**. Separate **MP4 video** and **MP3 audio** buttons work on normal YouTube watch pages; **a Shorts button-placement issue has been reported on newer YouTube layouts, and an extension-only fix is being tested**. The Bluesky feed/repost/thread improvements remain included. If upgrading from older versions, update both desktop and extension for YouTube format selection.
 
 The optional Chrome Companion adds one-click download arrows to supported **YouTube, Instagram, X/Twitter and Bluesky** posts. It communicates only with the Rextract helper installed on your own Windows computer.
 
@@ -56,7 +56,7 @@ The optional Chrome Companion adds one-click download arrows to supported **YouT
 2. Extract the ZIP into a **permanent folder** (don't load the ZIP itself).
 3. In Chrome, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the extracted folder containing `manifest.json`.
 4. Open Rextract → **Settings → Chrome Companion → Repair Chrome connection**; reload the extension if asked.
-5. Refresh the site. On YouTube, choose **MP4** (blue, video with sound) or **MP3** (green, audio-only). On Instagram, X and Bluesky, use the regular Rextract download arrow. The ring reflects download activity.
+5. Refresh the site. On regular YouTube watch pages, choose **MP4** (blue, video with sound) or **MP3** (green, audio-only). Shorts button placement varies on the current public extension; use the popup's **Download current post** or paste the Shorts link into the desktop app if the buttons are missing. Instagram, X and Bluesky have the normal download arrow. The ring reflects download activity.
 
 **Updating Chrome Companion:** To replace an older version, remove the existing Rextract extension at `chrome://extensions`, extract the latest public ZIP into a permanent folder, click **Load unpacked**, and select that folder. Return to Rextract → **Settings → Chrome Companion → Repair Chrome connection** if Chrome reports a connection error. Refresh any open YouTube, Instagram, X, or Bluesky tabs.
 
@@ -99,7 +99,7 @@ Some downloads need a valid website login or an available media stream. If somet
 
 ### Download directly from Chrome (optional)
 
-Once you've installed the [Chrome Companion](#chrome-companion-v0216-and-newer) and repaired its desktop connection, refresh a supported website. **On YouTube videos and Shorts, choose blue MP4 to download the video or green MP3 to extract audio only** (useful for sound effects). Each has its own progress indicator. On Instagram posts/Reels, X posts and Bluesky posts, use the small Rextract download arrow near the native action buttons.
+Once you've installed the [Chrome Companion](#chrome-companion-v0216-and-newer) and repaired its desktop connection, refresh a supported website. **On regular YouTube videos, choose blue MP4 to download the video or green MP3 to extract audio only** (useful for sound effects). **Shorts currently have an action-button compatibility issue on some layouts; use the extension popup or the desktop Download tab as a workaround.** Each has its own progress indicator. On Instagram posts/Reels, X posts and Bluesky posts, use the small Rextract download arrow near the native action buttons.
 
 - The circular indicator means your request is **queued or downloading**; when available, it reflects transfer progress. A checkmark means the download has completed.
 - The desktop app can stay **hidden in the background** while the download finishes.
